@@ -133,6 +133,9 @@ public class RoboResumeApp {
             EducationalAchievement ed = new EducationalAchievement();
             System.out.print("Enter the name of your degree: ");
             ed.setDegreeName(in.nextLine());
+            if (ed.getDegreeName().equals(" ") || ed.getDegreeName().equals("\n")){
+                ed.setDegreeName("none");
+            }
             while   (ed.getDegreeName ().contains("0") ||
                                     name.contains("1") ||
                                     name.contains("2") ||
@@ -145,6 +148,9 @@ public class RoboResumeApp {
                 System.out.println("This is not a valid degree name. Please enter the degree name in words");
                 System.out.print("Please enter your degree: ");
                 ed.setDegreeName(in.nextLine());
+                if (ed.getDegreeName().equals(" ") || ed.getDegreeName().equals("\n")){
+                    ed.setDegreeName("none");
+                }
             }
 
             System.out.print("Please enter the name of the school: ");
@@ -162,12 +168,18 @@ public class RoboResumeApp {
                 } catch (InputMismatchException e) {
                     System.out.print("Please enter a year in numeric digits: ");
                 }
+                catch (Exception e){
+                    System.out.print("Please enter a year in numeric digits: ");
+                }
             }
             //add the educational achievement to the storage array
             storage.add(ed.toString());
             //prompt to see if there are more educational achievements to enter
             System.out.print("Do you have more educational achievements to enter?(y/n) ");
             response = in.nextLine();
+            if (response.equals(" ") || response.equals("\n")){
+                response = "n";
+            }
             if (!response.equalsIgnoreCase("y")){
                 moreEducation = false;
             }
@@ -185,6 +197,9 @@ public class RoboResumeApp {
         boolean hasWorkExperience = false;
         System.out.print("Do you have any work experiences to enter? (y/n)");
         response = in.nextLine();
+        if (response.equals(" ") || response.equals("\n")){
+            response = "n";
+        }
         if (response.equalsIgnoreCase("y")){
             hasWorkExperience = true;
         }
@@ -261,11 +276,22 @@ public class RoboResumeApp {
                 //prompt for the number of duties performed
                 int numberOfDuties;
                 System.out.print("How many duties do you wish to enter for this job? ");
-                numberOfDuties = Integer.valueOf(in.nextLine());
+                try {
+                    numberOfDuties = Integer.valueOf(in.nextLine());
+                }
+                catch (NumberFormatException e){
+                    numberOfDuties = 0;
+                }
+                catch (Exception e){
+                    numberOfDuties = 0;
+                }
                 ArrayList<String> duties = new ArrayList<>();
                 for (int i = 1; i <=numberOfDuties; i++) {
                     System.out.print("Please enter duty number " + i + ": ");
                     duties.add(in.nextLine());
+                    if (duties.get(i).equals("") || duties.get(i).equals("\n")){
+                        duties.set(i, "none");
+                    }
                 }
                 //pass the duties list to the set function of the work experience
                 w.setDuties(duties);
@@ -275,6 +301,9 @@ public class RoboResumeApp {
                 //prompt to see if there are more work experience to enter
                 System.out.print("Do you have more jobs to enter?(y/n) ");
                 response = in.nextLine();
+                if (response.equals(" ") || response.equals("\n")){
+                    response = "n";
+                }
                 if (!response.equalsIgnoreCase("y")) {
                     moreExperience = false;
                 }
@@ -332,6 +361,9 @@ public class RoboResumeApp {
             //ask the user if they have more skills to enter
             System.out.print("Do you have more skills to enter(y/n)?  ");
             response = in.nextLine();
+            if (response.equals(" ") || response.equals("\n")){
+                response = "n";
+            }
             if (response.equalsIgnoreCase("y")){
                 moreSkills = true;
             }
