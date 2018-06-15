@@ -21,7 +21,7 @@ public class RoboResumeApp {
         //prompt for and read in name
         System.out.print("Enter your name:");
         name = in.nextLine();
-        if (name.equals(" ") || name.equals("\n")){
+        if (name.equals("") || name.equals("\n") || name.equals(" ")){
             name = "none";
         }
 
@@ -38,7 +38,7 @@ public class RoboResumeApp {
             System.out.println("This is not a valid input. Please enter your name in words");
             System.out.print("Please enter your name:");
             name = in.nextLine();
-            if (name.equals(" ") || name.equals("\n")){
+            if (name.equals("") || name.equals("\n") || name.equals(" ")){
                 name = "none";
             }
         }
@@ -49,7 +49,7 @@ public class RoboResumeApp {
         //prompt for and read in e-mail
         System.out.print("Enter your e-mail: ");
         email = in.nextLine();
-        if (email.equals(" ") || email.equals("\n")){
+        if (email.equals("") || email.equals("\n") || email.equals(" ")){
             email = "none";
         }
 
@@ -58,7 +58,7 @@ public class RoboResumeApp {
             System.out.println("This is not a valid e-mail");
             System.out.print("Enter your e-mail");
             email = in.nextLine();
-            if (email.equals(" ") || email.equals("\n")){
+            if (email.equals("") || email.equals("\n") || email.equals(" ")){
                 email = "none";
             }
         }
@@ -80,7 +80,7 @@ public class RoboResumeApp {
         EducationalAchievement ed1 = new EducationalAchievement();
         System.out.print("Enter the name of your degree: ");
         ed1.setDegreeName(in.nextLine());
-        if (ed1.getDegreeName().equals(" ") || ed1.getDegreeName().equals("\n")){
+        if (ed1.getDegreeName().equals("") || ed1.getDegreeName().equals("\n") || ed1.getDegreeName().equals(" ")){
             ed1.setDegreeName("none");
         }
         while  (ed1.getDegreeName ().contains("0") ||
@@ -95,14 +95,14 @@ public class RoboResumeApp {
             System.out.println("This is not a valid degree name. Please enter the degree name in words");
             System.out.print("Please enter your degree: ");
             ed1.setDegreeName(in.nextLine());
-            if (ed1.getDegreeName().equals(" ") || ed1.getDegreeName().equals("\n")){
+            if (ed1.getDegreeName().equals("") || ed1.getDegreeName().equals("\n") || ed1.getDegreeName().equals(" ")){
                 ed1.setDegreeName("none");
             }
         }
 
         System.out.print("Please enter the name of the school: ");
         ed1.setSchoolName(in.nextLine());
-        if (ed1.getSchoolName().equals(" ") || ed1.getSchoolName().equals("\n")){
+        if (ed1.getSchoolName().equals("") || ed1.getSchoolName().equals("\n") || ed1.getSchoolName().equals(" ")){
             ed1.setSchoolName("none");
         }
 
@@ -113,7 +113,10 @@ public class RoboResumeApp {
             try {
                 ed1.setYear(Integer.valueOf(in.nextLine()));
                 correctYear = true;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
+                System.out.print("Please enter a year in numeric digits: ");
+            }
+            catch (Exception e) {
                 System.out.print("Please enter a year in numeric digits: ");
             }
         }
@@ -125,6 +128,9 @@ public class RoboResumeApp {
         //prompt to see if there are more educational achievements to enter
         System.out.print("Do you have more educational achievements to enter?(y/n) ");
         String response = in.nextLine();
+        if (response.equals("") || response.equals("\n") || response.equals(" ")){
+           response = "n";
+        }
         if (response.equalsIgnoreCase("y")){
             moreEducation = true;
         }
@@ -133,7 +139,7 @@ public class RoboResumeApp {
             EducationalAchievement ed = new EducationalAchievement();
             System.out.print("Enter the name of your degree: ");
             ed.setDegreeName(in.nextLine());
-            if (ed.getDegreeName().equals(" ") || ed.getDegreeName().equals("\n")){
+            if (ed.getDegreeName().equals("") || ed.getDegreeName().equals("\n") || ed.getDegreeName().equals(" ")){
                 ed.setDegreeName("none");
             }
             while   (ed.getDegreeName ().contains("0") ||
@@ -148,14 +154,14 @@ public class RoboResumeApp {
                 System.out.println("This is not a valid degree name. Please enter the degree name in words");
                 System.out.print("Please enter your degree: ");
                 ed.setDegreeName(in.nextLine());
-                if (ed.getDegreeName().equals(" ") || ed.getDegreeName().equals("\n")){
+                if (ed.getDegreeName().equals("") || ed.getDegreeName().equals("\n") || ed.getDegreeName().equals(" ")){
                     ed.setDegreeName("none");
                 }
             }
 
             System.out.print("Please enter the name of the school: ");
             ed.setSchoolName(in.nextLine());
-            if (ed1.getSchoolName().equals(" ") || ed1.getSchoolName().equals("\n")){
+            if (ed1.getSchoolName().equals("") || ed1.getSchoolName().equals("\n") || ed1.getSchoolName().equals(" ")){
                 ed1.setSchoolName("none");
             }
 
@@ -177,7 +183,7 @@ public class RoboResumeApp {
             //prompt to see if there are more educational achievements to enter
             System.out.print("Do you have more educational achievements to enter?(y/n) ");
             response = in.nextLine();
-            if (response.equals(" ") || response.equals("\n")){
+            if (response.equals("") || response.equals("\n") || response.equals(" ")){
                 response = "n";
             }
             if (!response.equalsIgnoreCase("y")){
@@ -197,7 +203,7 @@ public class RoboResumeApp {
         boolean hasWorkExperience = false;
         System.out.print("Do you have any work experiences to enter? (y/n)");
         response = in.nextLine();
-        if (response.equals(" ") || response.equals("\n")){
+        if (response.equals("") || response.equals("\n") || response.equals(" ")){
             response = "n";
         }
         if (response.equalsIgnoreCase("y")){
@@ -216,21 +222,21 @@ public class RoboResumeApp {
                 System.out.print("Enter the job title: ");
                 //assume that job title can contain numbers, so no validation here
                 w.setJobTitle(in.nextLine());
-                if (w.getJobTitle().equals(" ") || w.getJobTitle().equals("\n")){
+                if (w.getJobTitle().equals("") || w.getJobTitle().equals("\n") || w.getJobTitle().equals(" ")){
                     w.setJobTitle("none");
                 }
                 //prompt for the company name
                 System.out.print("Please enter the name of the company: ");
                 //name of the company may also include numbers
                 w.setCompany(in.nextLine());
-                if (w.getCompany().equals(" ") || w.getCompany().equals("\n")){
+                if (w.getCompany().equals("") || w.getCompany().equals("\n") || w.getCompany().equals(" ")){
                     w.setCompany("none");
                 }
                 //prompt for the start date
                 System.out.print("Please enter the start date: ");
                 //the start date may contain words, but needs to contain at least some numbers
                 w.setStartDate(in.nextLine());
-                if (w.getStartDate().equals(" ") || w.getStartDate().equals("\n")){
+                if (w.getStartDate().equals("") || w.getStartDate().equals("\n") || w.getStartDate().equals(" ")){
                     w.setStartDate("none");
                 }
                 while (!(w.getStartDate().contains("0") ||
@@ -245,7 +251,7 @@ public class RoboResumeApp {
                     System.out.println("This is not a valid start date. Please enter the start date with digits");
                     System.out.print("Please enter the start date: ");
                     w.setStartDate(in.nextLine());
-                    if (w.getStartDate().equals(" ") || w.getStartDate().equals("\n")){
+                    if (w.getStartDate().equals("") || w.getStartDate().equals("\n") || w.getStartDate().equals(" ")){
                         w.setStartDate("none");
                     }
                 }
@@ -253,7 +259,7 @@ public class RoboResumeApp {
                 System.out.print("Please enter the end date: ");
                 //the end date need to either contain a number or the word present
                 w.setEndDate(in.nextLine());
-                if (w.getEndDate().equals(" ") || w.getEndDate().equals("\n")){
+                if (w.getEndDate().equals("") || w.getEndDate().equals("\n") || w.getEndDate().equals(" ")){
                     w.setEndDate("none");
                 }
                 while (!(w.getEndDate().contains("0") ||
@@ -269,7 +275,7 @@ public class RoboResumeApp {
                     System.out.println("This is not a valid end date. Please enter the end date with digits or the word \"present\"");
                     System.out.print("Please enter the end date: ");
                     w.setEndDate(in.nextLine());
-                    if (w.getEndDate().equals(" ") || w.getEndDate().equals("\n")){
+                    if (w.getEndDate().equals("") || w.getEndDate().equals("\n") || w.getEndDate().equals(" ")){
                         w.setEndDate("none");
                     }
                 }
@@ -289,8 +295,8 @@ public class RoboResumeApp {
                 for (int i = 1; i <=numberOfDuties; i++) {
                     System.out.print("Please enter duty number " + i + ": ");
                     duties.add(in.nextLine());
-                    if (duties.get(i).equals("") || duties.get(i).equals("\n")){
-                        duties.set(i, "none");
+                    if (duties.get(i-1).equals("") || duties.get(i-1).equals("\n") || duties.get(i-1).equals(" ")){
+                        duties.set(i-1, "none");
                     }
                 }
                 //pass the duties list to the set function of the work experience
@@ -301,7 +307,7 @@ public class RoboResumeApp {
                 //prompt to see if there are more work experience to enter
                 System.out.print("Do you have more jobs to enter?(y/n) ");
                 response = in.nextLine();
-                if (response.equals(" ") || response.equals("\n")){
+                if (response.equals("") || response.equals("\n") || response.equals(" ")){
                     response = "n";
                 }
                 if (!response.equalsIgnoreCase("y")) {
@@ -325,7 +331,7 @@ public class RoboResumeApp {
             System.out.print("Enter the first skill: ");
             //skill names should not contain numbers;
             s1.setSkill(in.nextLine());
-            if (s1.getSkill().equals(" ") || s1.getSkill().equals("\n")){
+            if (s1.getSkill().equals("") || s1.getSkill().equals("\n") || s1.getSkill().equals(" ")){
                 s1.setSkill("none");
             }
             while (s1.getSkill().contains("0") ||
@@ -342,7 +348,7 @@ public class RoboResumeApp {
                 System.out.println("The skill name should not contain any digits.");
                 System.out.println("Enter the first skill: ");
                 s1.setSkill(in.nextLine());
-                if (s1.getSkill().equals(" ") || s1.getSkill().equals("\n")){
+                if (s1.getSkill().equals("") || s1.getSkill().equals("\n") || s1.getSkill().equals(" ")){
                     s1.setSkill("none");
                 }
             }
@@ -351,7 +357,7 @@ public class RoboResumeApp {
             System.out.print("Enter the proficiency level for the skill: ");
             //proficiency level
             s1.setProficiency(in.nextLine());
-            if (s1.getProficiency().equals(" ") || s1.getProficiency().equals("\n")){
+            if (s1.getProficiency().equals("") || s1.getProficiency().equals("\n") || s1.getProficiency().equals(" ")){
                 s1.setProficiency("none");
             }
             //add the first skill to the storage array list
@@ -361,7 +367,7 @@ public class RoboResumeApp {
             //ask the user if they have more skills to enter
             System.out.print("Do you have more skills to enter(y/n)?  ");
             response = in.nextLine();
-            if (response.equals(" ") || response.equals("\n")){
+            if (response.equals("") || response.equals("\n") || response.equals(" ")){
                 response = "n";
             }
             if (response.equalsIgnoreCase("y")){
@@ -374,7 +380,7 @@ public class RoboResumeApp {
                 System.out.print("Enter the first skill: ");
                 //skill names should not contain numbers;
                 s.setSkill(in.nextLine());
-                if (s.getSkill().equals(" ") || s.getSkill().equals("\n")){
+                if (s.getSkill().equals("") || s.getSkill().equals("\n") || response.equals(" ")){
                     s.setSkill("none");
                 }
                 while  (s.getSkill().contains("0") ||
@@ -391,7 +397,7 @@ public class RoboResumeApp {
                     System.out.println("The skill name should not contain any digits.");
                     System.out.println("Enter the first skill: ");
                     s.setSkill(in.nextLine());
-                    if (s.getSkill().equals(" ") || s.getSkill().equals("\n")){
+                    if (s.getSkill().equals("") || s.getSkill().equals("\n") || response.equals(" ")){
                         s.setSkill("none");
                     }
                 }
@@ -400,7 +406,7 @@ public class RoboResumeApp {
                 System.out.print("Enter the proficiency level for the skill: ");
                 //proficiency level
                 s.setProficiency(in.nextLine());
-                if (s.getProficiency().equals(" ") || s.getProficiency().equals("\n")){
+                if (s.getProficiency().equals("") || s.getProficiency().equals("\n")||s.getProficiency().equals(" ")){
                     s.setProficiency("none");
                 }
                 //add the skill to the storage array
@@ -408,6 +414,9 @@ public class RoboResumeApp {
                 //ask the user if they have more skills to enter
                 System.out.print("Do you have more skills to enter(y/n)?  ");
                 response=in.nextLine ();
+                if (response.equals("") || response.equals("\n") || response.equals(" ")){
+                    response = "n";
+                }
                 if (response.equalsIgnoreCase("y")){
                     moreSkills = true;
                 }
@@ -417,6 +426,7 @@ public class RoboResumeApp {
             }
 
             //output all of the information to the screen
+            System.out.println();
             System.out.println("=======================================================");
             for (String item: storage){
                 System.out.print(item);
