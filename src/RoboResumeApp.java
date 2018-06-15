@@ -21,8 +21,10 @@ public class RoboResumeApp {
         //prompt for and read in name
         System.out.print("Enter your name:");
         name = in.nextLine();
-        if (name.equals("") || name.equals("\n") || name.equals(" ")){
-            name = "none";
+        while (name.equals("") || name.equals("\n") || name.equals(" ")){
+            System.out.println("Name can't be left blank");
+            System.out.print("Enter your name:");
+            name = in.nextLine();
         }
 
         //validate name
@@ -38,8 +40,9 @@ public class RoboResumeApp {
             System.out.println("This is not a valid input. Please enter your name in words");
             System.out.print("Please enter your name:");
             name = in.nextLine();
-            if (name.equals("") || name.equals("\n") || name.equals(" ")){
-                name = "none";
+            while (name.equals("") || name.equals("\n") || name.equals(" ")){
+                System.out.println("This is not a valid input. Please enter your name in words");
+                System.out.print("Please enter your name:");
             }
         }
 
@@ -49,8 +52,9 @@ public class RoboResumeApp {
         //prompt for and read in e-mail
         System.out.print("Enter your e-mail: ");
         email = in.nextLine();
-        if (email.equals("") || email.equals("\n") || email.equals(" ")){
-            email = "none";
+        while (email.equals("") || email.equals("\n") || email.equals(" ")){
+            System.out.println("E-mail can't be left blank");
+            email = in.nextLine();
         }
 
         //validate input
@@ -58,8 +62,9 @@ public class RoboResumeApp {
             System.out.println("This is not a valid e-mail");
             System.out.print("Enter your e-mail");
             email = in.nextLine();
-            if (email.equals("") || email.equals("\n") || email.equals(" ")){
-                email = "none";
+            while (email.equals("") || email.equals("\n") || email.equals(" ")){
+                System.out.print("Enter your e-mail");
+                email = in.nextLine();
             }
         }
 
@@ -80,8 +85,9 @@ public class RoboResumeApp {
         EducationalAchievement ed1 = new EducationalAchievement();
         System.out.print("Enter the name of your degree: ");
         ed1.setDegreeName(in.nextLine());
-        if (ed1.getDegreeName().equals("") || ed1.getDegreeName().equals("\n") || ed1.getDegreeName().equals(" ")){
-            ed1.setDegreeName("none");
+        while (ed1.getDegreeName().equals("") || ed1.getDegreeName().equals("\n") || ed1.getDegreeName().equals(" ")){
+            System.out.println("Degree name can't be left blank");
+            ed1.setDegreeName(in.nextLine());
         }
         while  (ed1.getDegreeName ().contains("0") ||
                                 name.contains("1") ||
@@ -95,15 +101,17 @@ public class RoboResumeApp {
             System.out.println("This is not a valid degree name. Please enter the degree name in words");
             System.out.print("Please enter your degree: ");
             ed1.setDegreeName(in.nextLine());
-            if (ed1.getDegreeName().equals("") || ed1.getDegreeName().equals("\n") || ed1.getDegreeName().equals(" ")){
-                ed1.setDegreeName("none");
+            while (ed1.getDegreeName().equals("") || ed1.getDegreeName().equals("\n") || ed1.getDegreeName().equals(" ")){
+                System.out.println("Degree can't be left blank");
+                ed1.setDegreeName(in.nextLine());
             }
         }
 
         System.out.print("Please enter the name of the school: ");
         ed1.setSchoolName(in.nextLine());
-        if (ed1.getSchoolName().equals("") || ed1.getSchoolName().equals("\n") || ed1.getSchoolName().equals(" ")){
-            ed1.setSchoolName("none");
+        while (ed1.getSchoolName().equals("") || ed1.getSchoolName().equals("\n") || ed1.getSchoolName().equals(" ")){
+            System.out.println("School name can't be left blank");
+            ed1.setSchoolName(in.nextLine());
         }
 
 
@@ -139,8 +147,10 @@ public class RoboResumeApp {
             EducationalAchievement ed = new EducationalAchievement();
             System.out.print("Enter the name of your degree: ");
             ed.setDegreeName(in.nextLine());
-            if (ed.getDegreeName().equals("") || ed.getDegreeName().equals("\n") || ed.getDegreeName().equals(" ")){
-                ed.setDegreeName("none");
+            while (ed.getDegreeName().equals("") || ed.getDegreeName().equals("\n") || ed.getDegreeName().equals(" ")){
+                System.out.println("Degree can't be left blank");
+                System.out.print("Enter the name of your degree: ");
+                ed.setDegreeName(in.nextLine());
             }
             while   (ed.getDegreeName ().contains("0") ||
                                     name.contains("1") ||
@@ -154,15 +164,19 @@ public class RoboResumeApp {
                 System.out.println("This is not a valid degree name. Please enter the degree name in words");
                 System.out.print("Please enter your degree: ");
                 ed.setDegreeName(in.nextLine());
-                if (ed.getDegreeName().equals("") || ed.getDegreeName().equals("\n") || ed.getDegreeName().equals(" ")){
-                    ed.setDegreeName("none");
+                while (ed.getDegreeName().equals("") || ed.getDegreeName().equals("\n") || ed.getDegreeName().equals(" ")){
+                    System.out.println("Degree can't be left blank");
+                    System.out.print("Enter the name of your degree: ");
+                    ed.setDegreeName(in.nextLine());
                 }
             }
 
             System.out.print("Please enter the name of the school: ");
             ed.setSchoolName(in.nextLine());
-            if (ed1.getSchoolName().equals("") || ed1.getSchoolName().equals("\n") || ed1.getSchoolName().equals(" ")){
-                ed1.setSchoolName("none");
+            while (ed1.getSchoolName().equals("") || ed1.getSchoolName().equals("\n") || ed1.getSchoolName().equals(" ")){
+                System.out.println("School name can't be left blank");
+                System.out.print("Please enter the name of the school: ");
+                ed.setSchoolName(in.nextLine());
             }
 
             System.out.print("Please enter the year of graduation: " );
@@ -222,23 +236,24 @@ public class RoboResumeApp {
                 System.out.print("Enter the job title: ");
                 //assume that job title can contain numbers, so no validation here
                 w.setJobTitle(in.nextLine());
-                if (w.getJobTitle().equals("") || w.getJobTitle().equals("\n") || w.getJobTitle().equals(" ")){
-                    w.setJobTitle("none");
+                while (w.getJobTitle().equals("") || w.getJobTitle().equals("\n") || w.getJobTitle().equals(" ")){
+                    System.out.println("Job title can't be left blank");
+                    System.out.println("Enter the job title: ");
+                    w.setJobTitle(in.nextLine());
                 }
                 //prompt for the company name
                 System.out.print("Please enter the name of the company: ");
                 //name of the company may also include numbers
                 w.setCompany(in.nextLine());
-                if (w.getCompany().equals("") || w.getCompany().equals("\n") || w.getCompany().equals(" ")){
-                    w.setCompany("none");
+                while (w.getCompany().equals("") || w.getCompany().equals("\n") || w.getCompany().equals(" ")){
+                    System.out.println("Company name can't be left blank");
+                    System.out.print("Please enter the name of the company: ");
+                    w.setCompany(in.nextLine());
                 }
                 //prompt for the start date
                 System.out.print("Please enter the start date: ");
                 //the start date may contain words, but needs to contain at least some numbers
                 w.setStartDate(in.nextLine());
-                if (w.getStartDate().equals("") || w.getStartDate().equals("\n") || w.getStartDate().equals(" ")){
-                    w.setStartDate("none");
-                }
                 while (!(w.getStartDate().contains("0") ||
                         w.getStartDate().contains("1") ||
                         w.getStartDate().contains("2") ||
@@ -251,17 +266,11 @@ public class RoboResumeApp {
                     System.out.println("This is not a valid start date. Please enter the start date with digits");
                     System.out.print("Please enter the start date: ");
                     w.setStartDate(in.nextLine());
-                    if (w.getStartDate().equals("") || w.getStartDate().equals("\n") || w.getStartDate().equals(" ")){
-                        w.setStartDate("none");
-                    }
                 }
                 //prompt for the end date
                 System.out.print("Please enter the end date: ");
                 //the end date need to either contain a number or the word present
                 w.setEndDate(in.nextLine());
-                if (w.getEndDate().equals("") || w.getEndDate().equals("\n") || w.getEndDate().equals(" ")){
-                    w.setEndDate("none");
-                }
                 while (!(w.getEndDate().contains("0") ||
                         w.getEndDate().contains("1") ||
                         w.getEndDate().contains("2") ||
@@ -275,9 +284,6 @@ public class RoboResumeApp {
                     System.out.println("This is not a valid end date. Please enter the end date with digits or the word \"present\"");
                     System.out.print("Please enter the end date: ");
                     w.setEndDate(in.nextLine());
-                    if (w.getEndDate().equals("") || w.getEndDate().equals("\n") || w.getEndDate().equals(" ")){
-                        w.setEndDate("none");
-                    }
                 }
                 //prompt for the number of duties performed
                 int numberOfDuties;
@@ -288,9 +294,6 @@ public class RoboResumeApp {
                 catch (NumberFormatException e){
                     numberOfDuties = 0;
                 }
-                catch (Exception e){
-                    numberOfDuties = 0;
-                }
                 ArrayList<String> duties = new ArrayList<>();
                 for (int i = 1; i <=numberOfDuties; i++) {
                     System.out.print("Please enter duty number " + i + ": ");
@@ -299,6 +302,7 @@ public class RoboResumeApp {
                         duties.set(i-1, "none");
                     }
                 }
+
                 //pass the duties list to the set function of the work experience
                 w.setDuties(duties);
 
@@ -331,8 +335,10 @@ public class RoboResumeApp {
             System.out.print("Enter the first skill: ");
             //skill names should not contain numbers;
             s1.setSkill(in.nextLine());
-            if (s1.getSkill().equals("") || s1.getSkill().equals("\n") || s1.getSkill().equals(" ")){
-                s1.setSkill("none");
+            while (s1.getSkill().equals("") || s1.getSkill().equals("\n") || s1.getSkill().equals(" ")){
+                System.out.print("The first skill can't be blank ");
+                System.out.print("Enter the first skill: ");
+                s1.setSkill(in.nextLine());
             }
             while (s1.getSkill().contains("0") ||
                    s1.getSkill().contains("1") ||
@@ -348,8 +354,10 @@ public class RoboResumeApp {
                 System.out.println("The skill name should not contain any digits.");
                 System.out.println("Enter the first skill: ");
                 s1.setSkill(in.nextLine());
-                if (s1.getSkill().equals("") || s1.getSkill().equals("\n") || s1.getSkill().equals(" ")){
-                    s1.setSkill("none");
+                while (s1.getSkill().equals("") || s1.getSkill().equals("\n") || s1.getSkill().equals(" ")){
+                    System.out.print("The first skill can't be blank ");
+                    System.out.print("Enter the first skill: ");
+                    s1.setSkill(in.nextLine());
                 }
             }
 
@@ -357,8 +365,10 @@ public class RoboResumeApp {
             System.out.print("Enter the proficiency level for the skill: ");
             //proficiency level
             s1.setProficiency(in.nextLine());
-            if (s1.getProficiency().equals("") || s1.getProficiency().equals("\n") || s1.getProficiency().equals(" ")){
-                s1.setProficiency("none");
+            while (s1.getProficiency().equals("") || s1.getProficiency().equals("\n") || s1.getProficiency().equals(" ")){
+                System.out.print("The proficiency level can't be blank ");
+                System.out.print("Enter the proficiency level for the skill: ");
+                s1.setProficiency(in.nextLine());
             }
             //add the first skill to the storage array list
             storage.add(s1.toString());
@@ -380,8 +390,10 @@ public class RoboResumeApp {
                 System.out.print("Enter the first skill: ");
                 //skill names should not contain numbers;
                 s.setSkill(in.nextLine());
-                if (s.getSkill().equals("") || s.getSkill().equals("\n") || response.equals(" ")){
-                    s.setSkill("none");
+                while (s.getSkill().equals("") || s.getSkill().equals("\n") || response.equals(" ")){
+                    System.out.print("The skill can't be blank ");
+                    System.out.print("Enter the skill: ");
+                    s1.setSkill(in.nextLine());
                 }
                 while  (s.getSkill().contains("0") ||
                         s.getSkill().contains("1") ||
@@ -397,8 +409,10 @@ public class RoboResumeApp {
                     System.out.println("The skill name should not contain any digits.");
                     System.out.println("Enter the first skill: ");
                     s.setSkill(in.nextLine());
-                    if (s.getSkill().equals("") || s.getSkill().equals("\n") || response.equals(" ")){
-                        s.setSkill("none");
+                    while (s.getSkill().equals("") || s.getSkill().equals("\n") || response.equals(" ")){
+                        System.out.print("The skill can't be blank ");
+                        System.out.print("Enter the skill: ");
+                        s.setSkill(in.nextLine());
                     }
                 }
 
@@ -406,8 +420,10 @@ public class RoboResumeApp {
                 System.out.print("Enter the proficiency level for the skill: ");
                 //proficiency level
                 s.setProficiency(in.nextLine());
-                if (s.getProficiency().equals("") || s.getProficiency().equals("\n")||s.getProficiency().equals(" ")){
-                    s.setProficiency("none");
+                while (s.getProficiency().equals("") || s.getProficiency().equals("\n")||s.getProficiency().equals(" ")){
+                    System.out.print("The proficiency can't be blank ");
+                    System.out.print("Enter the proficiency level for the skill: ");
+                    s.setProficiency(in.nextLine());
                 }
                 //add the skill to the storage array
                 storage.add(s.toString());
