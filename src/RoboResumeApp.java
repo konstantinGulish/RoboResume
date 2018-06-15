@@ -426,12 +426,12 @@ public class RoboResumeApp {
             }
 
             //output all of the information to the screen
-            System.out.println();
             System.out.println("=======================================================");
             for (String item: storage){
                 System.out.print(item);
             }
 
+            System.out.println();
             System.out.println("*******outputting your resume to resume.txt********");
 
             //create a new file
